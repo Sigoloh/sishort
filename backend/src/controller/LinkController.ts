@@ -7,9 +7,13 @@ export class LinkController{
 
       const { alias } = request.params;
       console.log(alias);
-      await linksService.getUrl(alias);
-      response.sendStatus(200);
+      const url = await linksService.getUrl(alias);
+      response.json({
+        status: 'Ok',
+        url: url
+      });
     } catch (error){
+      response.status(500);
       console.log(error);
       throw new Error('Error in the links controller: getLink');
     }

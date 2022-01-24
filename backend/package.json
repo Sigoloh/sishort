@@ -10,6 +10,7 @@
       "typescript": "3.3.3333"
    },
    "dependencies": {
+      "adler-32": "^1.3.0",
       "body-parser": "^1.18.1",
       "express": "^4.15.4",
       "global": "^4.4.0",
