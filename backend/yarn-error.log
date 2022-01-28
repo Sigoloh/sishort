@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/bin/yarn add adler-32
+  /usr/local/bin/node /usr/local/bin/yarn add -D @types/node
 
 PATH: 
   /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
@@ -29,6 +29,7 @@ npm manifest:
         "typescript": "3.3.3333"
      },
      "dependencies": {
+        "adler-32": "^1.3.0",
         "body-parser": "^1.18.1",
         "express": "^4.15.4",
         "global": "^4.4.0",
@@ -144,6 +145,13 @@ Lockfile:
     dependencies:
       mime-types "~2.1.24"
       negotiator "0.6.2"
+  
+  adler-32@^1.3.0:
+    version "1.3.0"
+    resolved "https://registry.yarnpkg.com/adler-32/-/adler-32-1.3.0.tgz#3cad1b71cdfa69f6c8a91f3e3615d31a4fdedc72"
+    integrity sha512-f5nltvjl+PRUh6YNfUstRaXwJxtfnKEWhAWWlmKvh+Y3J2+98a0KKVYDEhz6NdKGqswLhjNGznxfSsZGOvOd9g==
+    dependencies:
+      printj "~1.2.2"
   
   ansi-regex@^5.0.1:
     version "5.0.1"
@@ -907,6 +915,11 @@ Lockfile:
     version "2.3.1"
     resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-2.3.1.tgz#3ba3833733646d9d3e4995946c1365a67fb07a42"
     integrity sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==
+  
+  printj@~1.2.2:
+    version "1.2.3"
+    resolved "https://registry.yarnpkg.com/printj/-/printj-1.2.3.tgz#2cfb2b192a1e5385dbbe5b46658ac34aa828508a"
+    integrity sha512-sanczS6xOJOg7IKDvi4sGOUOe7c1tsEzjwlLFH/zgwx/uyImVM9/rgBkc8AfiQa/Vg54nRd8mkm9yI7WV/O+WA==
   
   process-nextick-args@~2.0.0:
     version "2.0.1"

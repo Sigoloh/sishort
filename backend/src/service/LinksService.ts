@@ -1,5 +1,6 @@
 import {getMongoRepository} from "typeorm";
 import {Link} from "../entity/Links";
+import {LinksProvider} from "../providers/LinksProvider";
 
 export class LinksService{
   private adler32 = require('adler-32');
@@ -26,12 +27,26 @@ export class LinksService{
 
   async getUrl(alias_to_search: string): Promise<string>{
     try{
+      const linkProvider = new LinksProvider();
+
       const linkRepository = await getMongoRepository(Link);
+      
+      const cached = linkProvider.getLinkInCache(alias_to_search);
 
-      const linkSearched = await linkRepository.findOne({alias: "cermoo"});
+      if(cached !== '-1'){
+        console.log('Ja existe no cache n tem que buscar');
+        return cached;
+      } else {
+        console.log('N existe no cache, tem que buscar');
+        const linkSearched = await linkRepository.findOne({alias: alias_to_search});
 
-      return linkSearched.url;
+        linkProvider.setLinkInCache(linkSearched);
+
+        return linkSearched.url;
+      }
+
     } catch (error){
+      console.log(error);
       throw new Error('Error in the links service: getUrl');
     }
   }

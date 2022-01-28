@@ -4,7 +4,6 @@ export class LinkController{
   async getLink(request: Request, response: Response){
     try{
       const linksService = new LinksService();
-
       const { alias } = request.params;
       console.log(alias);
       const url = await linksService.getUrl(alias);
