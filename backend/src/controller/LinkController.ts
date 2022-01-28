@@ -7,10 +7,15 @@ export class LinkController{
       const { alias } = request.params;
       console.log(alias);
       const url = await linksService.getUrl(alias);
-      response.json({
-        status: 'Ok',
-        url: url
-      });
+      if(url !== 'Not Found'){
+        response.json({
+                status: 'Ok',
+                url: url
+              });
+      }else{
+        response.sendStatus(404);
+      }
+      
     } catch (error){
       response.status(500);
       console.log(error);

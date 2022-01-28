@@ -40,9 +40,12 @@ export class LinksService{
         console.log('N existe no cache, tem que buscar');
         const linkSearched = await linkRepository.findOne({alias: alias_to_search});
 
-        linkProvider.setLinkInCache(linkSearched);
+        if(linkSearched){
+          linkProvider.setLinkInCache(linkSearched);
+          return linkSearched.url;
+        }
+        return 'Not Found';
 
-        return linkSearched.url;
       }
 
     } catch (error){
