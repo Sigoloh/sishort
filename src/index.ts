@@ -13,7 +13,7 @@ createConnection().then(async connection => {
     // setup express app here
     app.use(router);
     // start express server
-    app.listen(3000);
+    app.listen(process.env.PORT || 3000);
     
     console.log("Express server has started on port 3000");
 
