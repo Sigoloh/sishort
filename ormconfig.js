@@ -1,10 +1,6 @@
-{
+module.exports = {
    "type": "mongodb",
-   "host": "localhost", 
-   "username": "admin",
-   "password": "admin",
-   "port": 27017,
-   "database": "sishort",
+   "url": process.env.DATABASE_URL,
    "synchronize": true,
    "logging": false,
    "entities": [
