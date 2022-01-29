@@ -1,6 +1,6 @@
 module.exports = {
    "type": "mongodb",
-   "url": process.env.DATABASE_URL,
+   "url": process.env.DATABASE_CONNECTION_URL,
    "synchronize": true,
    "logging": false,
    "entities": [
