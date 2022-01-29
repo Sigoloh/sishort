@@ -8,11 +8,13 @@ export class LinkController{
       console.log(alias);
       const url = await linksService.getUrl(alias);
       if(url !== 'Not Found'){
+        response.set('Access-Control-Allow-Origin', '*');
         response.json({
                 status: 'Ok',
                 url: url
               });
       }else{
+        response.set('Access-Control-Allow-Origin', '*');
         response.sendStatus(404);
       }
       
